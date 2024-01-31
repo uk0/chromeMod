@@ -1,12 +1,12 @@
-
 class HttpServer:
     def __init__(self):
-       print("init ")
-    def start_server(self):
+        print("init ")
         from flask import Flask
-        app = Flask(__name__)
-        @app.route('/api/v1/query')
+        self.app = Flask(__name__)
+
+    def start_server(self):
+        @self.app.route('/api/v1/query')
         def index():
-            return "Hello, World!"
-        if __name__ == '__main__':
-            app.run(debug=True)
+            return "any!"
+
+        self.app.run(debug=True)
